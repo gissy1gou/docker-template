@@ -30,14 +30,15 @@ $ . start.sh
 * 使用するディレクトリにてレポジトリを clone し、`dev/use-github` ブランチに移動。
 
 ```
-$ git clone https://github.com/rkmtlab/docker-template.git
-$ cd docker-template
-$ git checkout dev/use-github
+git clone https://github.com/rkmtlab/docker-template.git
+cd docker-template
+git checkout dev/use-github
 ```
 
 * `docker-compose.yml` と `Dockerfile`の中身を変更。
   * `docker-compose.yml` のサーバーに開けるポート番号 と `Dockerfile`のgithub アカウント名。
-* `docker-compose up --build -d` とコマンドを打ち込む -> 分析環境のコンテナができる。
+* ```docker-compose up --build -d```
+とコマンドを打ち込む -> 分析環境のコンテナができる。
 
 #### VSCode の設定
 * vscodeでRemote Explore という拡張機能を入れる。
@@ -53,6 +54,9 @@ $ git checkout dev/use-github
   * (`dvorak`など。`a` でも `b` でもOK。入るときに使う名前なので何でもいい。)
 * `REMOTE` の右側の更新ボタンを押す。
   * 現れる、`（設定した名前）`の右側のボタンを押すと、VSCode で Jupyter が使える。
+* 接続できない場合、ローカルで以下のコマンドを打つ。
+```ssh-keygen -R '[(IPアドレス）]:（ポート番号）'```
+
 
 ### コンテナの閉じ方
 * `docker-compose down`
